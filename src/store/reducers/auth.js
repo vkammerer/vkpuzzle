@@ -6,20 +6,23 @@ export default (currentstate, action) => {
 		case C.ATTEMPTING_LOGIN:
 			return {
 				currently: C.AWAITING_AUTH_RESPONSE,
-				username: 'guest',
-				uid: null
+				uid: null,
+				data: {},
+				token: null
 			};
 		case C.LOGOUT:
 			return {
 				currently: C.ANONYMOUS,
-				username: 'guest',
-				uid: null
+				uid: null,
+				data: {},
+				token: null
 			};
 		case C.LOGIN_USER:
 			return {
 				currently: C.LOGGED_IN,
-				username: action.username,
-				uid: action.uid
+				uid: action.uid,
+				data: action.data,
+				token: action.token
 			};
 		default: return currentstate || initialState.auth;
 	}

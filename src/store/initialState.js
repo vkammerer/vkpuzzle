@@ -6,6 +6,14 @@ import C from '../constants';
 
 export default {
 	feedback: [],
+	users: {
+		hasreceiveddata: false,
+		data: {}
+	},
+	friends: {
+		hasreceiveddata: false,
+		data: {}
+	},
 	auth: {
 		currently: C.ANONYMOUS,
 		username: null,

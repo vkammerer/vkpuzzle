@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-class Feedbackpanel extends Component {
+class Feedback extends Component {
 	render() {
 		const p = this.props;
 		const rows = p.feedback.map((f, n) => {
@@ -31,4 +31,4 @@ class Feedbackpanel extends Component {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Feedbackpanel);
+export default connect(mapStateToProps, mapDispatchToProps)(Feedback);

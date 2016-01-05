@@ -1,15 +1,17 @@
 import path from 'path';
 import webpack from 'webpack';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
-	devtool: 'source-map',
+	eslint: {
+		configFile: '.eslintrc'
+	},
 	entry: [
-		'./src/index'
+		path.join(__dirname, 'src', 'main')
 	],
 	output: {
-		path: path.join(__dirname, 'static', 'scripts'),
-		filename: 'bundle.js',
-		publicPath: ''
+		path: path.join(__dirname, 'static'),
+		filename: '[name].js'
 	},
 	plugins: [
 		new webpack.optimize.OccurenceOrderPlugin(),
@@ -22,13 +24,11 @@ export default {
 			compressor: {
 				warnings: false
 			}
-		})
+		}),
+		new ExtractTextPlugin('[name].css')
 	],
 	resolve: {
-		extensions: ['', '.js', '.jsx']
-	},
-	eslint: {
-		configFile: '.eslintrc'
+		extensions: ['', '.js', '.jsx', '.css']
 	},
 	module: {
 		preLoaders: [
@@ -38,10 +38,16 @@ export default {
 				exclude: ['node_modules']
 			}
 		],
-		loaders: [{
-			test: /\.js|\.jsx$/,
-			loaders: ['babel'],
-			include: path.join(__dirname, 'src')
-		}]
+		loaders: [
+			{
+				test: /\.js|\.jsx$/,
+				loaders: ['babel'],
+				include: path.join(__dirname, 'src')
+			},
+			{
+				test: /\.css$/,
+				loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules')
+			}
+		]
 	}
 };

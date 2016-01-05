@@ -1,0 +1,27 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: #EEE;
+	color: black;
+}
+.app {
+	display: flex;
+	max-width: 600px;
+	margin: 20px auto 0;
+	padding: 20px;
+	background: #F3F3F3;
+	box-shadow: 0 0 10px 0 rgba(0,0,0,0.4);
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.nav,
+.auth,
+.feedback,
+.users {
+	width: 100%;
+}
+.nav {
+	/*background: purple*/
+}

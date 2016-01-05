@@ -1,22 +1,25 @@
 import C from '../constants';
 import Firebase from 'firebase';
+import usersActions from './users';
+import friendsActions from './friends';
 
 const fireRef = new Firebase(C.FIREBASE);
 
 const authActions = {
-	startListeningToAuth() {
-		return (dispatch, getState) => {
+	listenToAuth() {
+		return (dispatch) => {
 			fireRef.onAuth((authData) => {
+				console.log('fireRef.onAuth');
+				console.log(authData);
 				if (authData) {
 					dispatch({
 						type: C.LOGIN_USER,
 						uid: authData.uid,
-						username: authData.facebook.displayName || authData.facebook.username
+						data: authData.facebook.cachedUserProfile,
+						token: authData.facebook.accessToken
 					});
-				} else {
-					if (getState().auth.currently !== C.ANONYMOUS) {
-						dispatch({ type: C.LOGOUT });
-					}
+					dispatch(usersActions.initAuthenticatedUser());
+					dispatch(friendsActions.initFriends());
 				}
 			});
 		};
@@ -29,11 +32,14 @@ const authActions = {
 					dispatch({ type: C.DISPLAY_ERROR, error: 'Login failed! ' + error });
 					dispatch({ type: C.LOGOUT });
 				}
+			}, {
+				scope: 'user_friends'
 			});
 		};
 	},
 	logoutUser() {
 		return (dispatch) => {
+			dispatch(usersActions.setAuthenticatedUserOffline());
 			dispatch({ type: C.LOGOUT });
 			fireRef.unauth();
 		};

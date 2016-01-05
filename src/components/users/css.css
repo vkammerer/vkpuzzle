@@ -1,0 +1,16 @@
+.users {
+	display: flex;
+}
+.user {
+	background: blue;
+	width: 4em;
+	height: 4em;
+	border-radius: 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	box-shadow: 0 0 4px 0 rgba(0,0,0,0.3);
+}
+.online {
+	color: green
+}

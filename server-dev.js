@@ -2,11 +2,13 @@ import path from 'path';
 import express from 'express';
 import webpack from 'webpack';
 import config from './webpack.config.dev';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
 
 const app = express();
 const compiler = webpack(config);
 
-app.use(require('webpack-dev-middleware')(compiler, {
+app.use(webpackDevMiddleware(compiler, {
 	stats: {
 		chunks: false,
 		colors: true
@@ -14,13 +16,13 @@ app.use(require('webpack-dev-middleware')(compiler, {
 	publicPath: config.output.publicPath
 }));
 
-app.use(require('webpack-hot-middleware')(compiler));
+app.use(webpackHotMiddleware(compiler));
+
+app.get('/', (req, res) => {
+	res.sendFile(path.join(__dirname, './src/index.html'));
+});
 
 app.use(express.static('static'));
-
-app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, 'static', 'index.html'));
-});
 
 app.listen(8080, 'localhost', (err) => {
 	if (err) {

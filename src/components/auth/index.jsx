@@ -20,7 +20,7 @@ class Authpanel extends Component {
 		switch (p.auth.currently) {
 			case C.LOGGED_IN: return (
 				<div className="authpanel">
-					<span>Logged in as {p.auth.username}.</span>
+					<span>Logged in as {p.auth.data.first_name}.</span>
 					{" "}<button onClick={p.logoutUser}>Log out</button>
 				</div>
 			);
