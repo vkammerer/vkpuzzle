@@ -4,8 +4,8 @@
   "description": "A boilerplate using Webpack, React, Redux and Firebase",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_ENV=production webpack --config webpack.config.prod.es5.js",
-    "dev": "node server-dev.es5.js"
+    "build": "NODE_ENV=production webpack --config tasks/webpack.config.prod.babel.js",
+    "dev": "node tasks/server-dev.es5.js"
   },
   "devDependencies": {
     "babel-core": "^6.3.15",

@@ -4,6 +4,7 @@
   "rules": {
     "new-cap": 0,
     "no-console": 0,
+    "no-unused-vars": [2, {"vars": "all", "args": "none"}],
     "indent": [2, "tab", {"SwitchCase": 1}],
     "comma-dangle": 0,
     "react/prop-types": 0,

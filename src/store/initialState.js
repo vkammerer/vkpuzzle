@@ -6,11 +6,11 @@ import C from '../constants';
 
 export default {
 	feedback: [],
-	users: {
+	friends: {
 		hasreceiveddata: false,
 		data: {}
 	},
-	friends: {
+	friendships: {
 		hasreceiveddata: false,
 		data: {}
 	},

@@ -8,10 +8,10 @@ export default {
 	},
 	entry: [
 		'webpack-hot-middleware/client',
-		path.join(__dirname, 'src', 'main')
+		path.join(__dirname, '..', 'src', 'main')
 	],
 	output: {
-		path: path.join(__dirname, 'static'),
+		path: path.join(__dirname, '..', 'static'),
 		filename: '[name].js'
 	},
 	plugins: [
@@ -33,7 +33,7 @@ export default {
 			{
 				test: /\.js|\.jsx$/,
 				loaders: ['babel'],
-				include: path.join(__dirname, 'src')
+				include: path.join(__dirname, '..', 'src')
 			},
 			{
 				test: /\.css$/,

@@ -1,7 +1,7 @@
-.users {
+.friends {
 	display: flex;
 }
-.user {
+.friend {
 	background: blue;
 	width: 4em;
 	height: 4em;
