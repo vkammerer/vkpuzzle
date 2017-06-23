@@ -1,6 +1,6 @@
 import C from '../constants';
 import Firebase from 'firebase';
-import { initFriendships } from './friendships';
+import friendsActions from './friends';
 import { is, fromJS } from 'immutable';
 
 const fireRef = new Firebase(C.FIREBASE);
@@ -18,7 +18,7 @@ const authActions = {
 						token: authData.facebook.accessToken
 					});
 					dispatch(this.initAuthenticatedUser());
-					dispatch(initFriendships());
+					dispatch(friendsActions.initFriends());
 				}
 			});
 		};

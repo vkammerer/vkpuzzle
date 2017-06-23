@@ -1,8 +1,7 @@
-# Webpack + React + Redux + Firebase
+# Puzzle
 
-Starter Kit / Boilerplate to use React, Redux and Firebase in an ES2015 codebase compiled with Webpack.  
-This is an adaptation of the article [http://blog.krawaller.se/posts/a-react-redux-firebase-app-with-authentication](http://blog.krawaller.se/posts/a-react-redux-firebase-app-with-authentication)  
-A version of this app is visible at [vkammerer.github.io/react-redux-firebase](http://vkammerer.github.io/react-redux-firebase)
+An example application using [https://github.com/vkammerer/react-redux-firebase](https://github.com/vkammerer/react-redux-firebase).  
+Visible at [http://vkammerer.github.io/vkpuzzle](http://vkammerer.github.io/vkpuzzle).  
 
 ## Install
 Clone the repo and then:

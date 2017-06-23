@@ -10,10 +10,6 @@ export default {
 		hasreceiveddata: false,
 		data: {}
 	},
-	friendships: {
-		hasreceiveddata: false,
-		data: {}
-	},
 	auth: {
 		currently: C.ANONYMOUS,
 		username: null,
